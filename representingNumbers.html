@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is an abacus</title>
+    <style>
+        /* Global Reset */
+        * {
+            box-sizing: border-box;
+        }
+
+        /* General page styling - Mobile First */
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px 15px;
+            background-color: #fcfcfc;
+            color: #333;
+        }
+
+        nav {
+            margin-bottom: 20px;
+        }
+        
+        nav a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            padding: 10px 0; /* Easier to tap */
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        h1, h2 {
+            line-height: 1.3;
+            margin-top: 0;
+        }
+
+        /* Container to center the content and limit its maximum width */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto; 
+        }
+
+        /* Mobile Layout: Columns stacked vertically by default */
+        .content-row {
+            display: flex;
+            flex-direction: column;
+            gap: 20px; 
+            margin-bottom: 40px; 
+        }
+
+        .text-block, .image-block {
+            width: 100%;
+        }
+
+        .image-block {
+            text-align: center;
+        }
+
+        /* Ensures images never break out of their column */
+        .image-block img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto 10px auto;
+            border-radius: 4px;
+        }
+
+        /* Large touch-target button for mobile */
+        .link-button { 
+            display: block;
+            width: 100%;
+            padding: 15px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        /* Desktop responsiveness: side-by-side columns */
+        @media (min-width: 768px) {
+            body {
+                font-size: 20px;
+                padding: 40px 20px;
+            }
+
+            .content-row {
+                flex-direction: row;
+                align-items: center; /* Aligns text and images nicely in the middle */
+                gap: 40px;
+                margin-bottom: 60px;
+            }
+
+            .text-block {
+                flex: 1; 
+            }
+
+            .image-block {
+                flex: 1; 
+            }
+
+            .link-button {
+                display: inline-block;
+                width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav><a href="index.html">← Back to Home</a></nav>
+
+<div class="container">
+    <div class="content-row">
+        <div class="image-block">
+            <img src="pictures/rodCorresp3a.png" alt="Placeholder">
+        </div>
+        <div class="image-block">
+            <img src="pictures/rodCorresp3b2.png" alt="Placeholder">
+        </div>
+    </div>
+    
+    <h1>Representing numbers with a counting frame</h1>
+    <div class="content-row">
+        <div class="text-block">
+            <h2>Representing numbers with an abacus</h2>
+            <p>One operates an abacus by sliding the beads up and down the rods. Numbers can be represented on the rods with the beads. The position of the beads on a rod most often correspond to a Hindu-Arabic numeral, these make up the digits of a number when read left to right. Which numeral or digit the rod corresponds to can be determined by counting the active beads from top to bottom on a single rod, from the upper deck to the lower deck. Beads are active when they are touching the middle bar or touching a bead that is touching the middle bar.</p>
+        </div>
+        <div class="text-block">
+            <p>Adjacent rods from left to right together represent the digits of a base-10 number. The bead in the upper deck counts for five of the beads directly below it in the lower deck. A lower bead usually counts for ten of the beads on the rod directly to right of it.</p>
+        </div>
+    </div>
+
+    <div class="content-row">
+        <div class="text-block">
+            <p>123,456,789 on rods</p>
+        </div>
+        <div class="image-block">
+            <img src="pictures/image1.jpeg" alt="Placeholder">
+        </div>
+    </div>
+
+    <div class="content-row">
+        <div class="text-block">
+            <p>200 on rods</p>
+        </div>
+        <div class="image-block">
+            <img src="pictures/123456789.jpeg" alt="Placeholder">
+        </div>
+    </div>
+
+    <div class="content-row">
+        <div class="text-block">
+            <p>0 on rods, also a blank or “cleared” abacus</p>
+        </div>
+        <div class="image-block">
+            <img src="pictures/IMG_0137.jpeg" alt="Placeholder">
+        </div>
+    </div>
+
+    <div class="content-row">
+        <div class="text-block">
+            <h2>When rods are not single digits</h2>
+            <p>These blank/cleared rods with no active beads can represent the numeral 0 as previously mentioned but they also can be blank rods, we ignore those like we would empty spaces where there is no number or digit.</p>
+        </div>
+        <div class="image-block">
+            <img src="assets/0Rod4.png" alt="Placeholder">
+        </div>
+    </div>
+
+    <div class="content-row">
+        <div class="text-block">
+            <p>In this example from earlier the rod with two active beads represents a 2, the leftmost digit of 200, the rods to the left of it are blank rods, those to the right represent 0s.</p>
+        </div>
+        <div class="image-block">
+            <img src="pictures/123456789.jpeg" alt="Placeholder">
+        </div>
+    </div>
+
+    <div class="content-row">
+        <div class="text-block">
+            <p>These full rods allow us to represent numbers more compactly and with fewer 0s. All beads on this rod are active, ten beads by count.</p>
+        </div>
+        <div class="image-block">
+            <img src="assets/TRod4.png" alt="Placeholder">
+        </div>
+    </div>
+
+    <div class="content-row">
+        <div class="text-block">
+            <p>1,111,111,101, a ten-digit number represented compactly on 9 rods.</p>
+        </div>
+        <div class="image-block">
+            <img src="pictures/image0149.jpeg" alt="Placeholder">
+        </div>
+    </div>
+
+    <div class="content-row">
+        <div class="text-block">
+            <p>Three different ways to represent 8000, two of these use full rods.</p>
+        </div>
+        <div class="image-block">
+            <img src="pictures/image0148.jpeg" alt="8000 variant 1">
+            <img src="pictures/image0147.jpeg" alt="8000 variant 2">
+            <img src="pictures/image0150.jpeg" alt="8000 variant 3">
+        </div>
+    </div>
+    
+    <div class="content-row">
+        <div class="text-block">
+            <p>You can represent numbers with a decimal point and a thousands separator. I don't recommend drawing the symbols directly on the frame since it would be hard to take off, so I suggest drawing them on a piece of paper and placing it on top of the middle bar. Left: 123,345.789. The rightmost rod need not be the ones place.</p>
+        </div>
+        <div class="image-block">
+            <img src="pictures/paper0.jpeg" alt="Placeholder">
+        </div>
+    </div>
+
+    <div class="content-row">
+        <div class="text-block">
+            <p>Amounts of things can often be represented multiple ways numerically. If you measure out a length of 9 decimeters 9 centimeters and 10 millimeters you also have 1 meter.</p>
+        </div>
+        <div class="text-block">
+            <p>Much like how there are multiple ways to represent a number with beads there are multiple ways to represent numbers with USD.</p>
+        </div>
+        <div class="text-block">
+            <p>For example, if you ask a bank teller for $100, you can receive this as one one-hundred-dollar bill or ten tens or nine tens and ten ones or even nine tens, nine ones, and ten dimes.</p>
+        </div>
+    </div>
+
+    <div class="content-row">
+        <div class="text-block">
+            <h1>Making change with cash and regrouping beads on a counting frame give us multiple ways to represent some amounts/numbers.</h1>
+        </div>
+    </div>
+
+    <div class="content-row">
+        <div class="text-block">
+            <h2>For example, 100 in cash:</h2>
+        </div>
+        <div class="text-block">
+            <h2>and 100 in beads:</h2>
+        </div>
+    </div>
+
+    <div class="content-row">
+        <div class="image-block">
+            <p>1 $100</p>
+            <img src="pictures/IMG_0965.jpeg" alt="1 100 dollar bill">
+        </div>
+        <div class="image-block">
+            <p>1 bead worth 100</p>
+            <img src="pictures/IMG_0966.jpeg" alt="1 bead worth 100">
+        </div>
+    </div>
+
+    <div class="content-row">
+        <div class="image-block">
+            <p>10 $10s</p>
+            <img src="pictures/IMG_0967.jpeg" alt="10 10 dollar bills">
+        </div>
+        <div class="image-block">
+            <p>10 beads worth 10</p>
+            <img src="pictures/IMG_0970.jpeg" alt="10 beads worth 10">
+        </div>
+    </div>
+
+    <div class="content-row">
+        <div class="image-block">
+            <p>9 $10s and 10 1s</p>
+            <img src="pictures/IMG_0968.jpeg" alt="9 10s and 10 1s">
+        </div>
+        <div class="image-block">
+            <p>9 beads worth 10 and 10 worth 1</p>
+            <img src="pictures/IMG_0971.jpeg" alt="9 beads worth 10 and 10 worth 1">
+        </div>
+    </div>
+    
+    <div class="content-row">
+        <div class="image-block">
+            <p>9 $10s, 9 $1s and 10 dimes</p>
+            <img src="pictures/IMG_0969.jpeg" alt="9 10s, 9 1s, 10 dimes">
+        </div>
+        <div class="image-block">
+            <p>9 beads worth 10, 9 worth 1 and 10 worth 0.1.</p>
+            <img src="pictures/IMG_0972.jpeg" alt="9 beads worth 10, 9 worth 1, 10 worth 0.1">
+        </div>
+    </div>
+
+    <div class="content-row">
+        <div class="text-block">
+            <h2>Another way cash math is similar to bead arithmetic</h2>
+        </div>
+        <div class="text-block">
+            <p>To perform long addition and subtraction you need to use regrouping. Both cash and counting frames provide a physical way of regrouping. With cash we call this "making change". On an abacus we can exchange a bead for the five beads worth 1/10 and one bead worth 1/2 on the rod immediately to the right.</p>
+        </div>
+    </div>
+
+    <div class="content-row">
+        <div class="text-block">
+            <h2>A potential mistake</h2>
+        </div>
+        <div class="text-block">
+            <p>Comparing numbers represented with cash/beads is more complicated than comparing written whole numbers.</p>
+            <p>If you have 5 $1 bills and your friend has 4 $1s and 4 quarters you might assume you have more money if you're only counting bills.</p>
+        </div>
+    </div>
+
+    <div class="content-row">
+        <div class="text-block">
+            <p>Let's say you're comparing two normally written counting numbers, also called positive integers, call them x and y. If x or y has more digits then it's a bigger number. If x and y have the same number/count of digits then you compare them digit by digit, if x or y has a larger digit in the same place then it's larger. Finally, x = y if they have the same digits in the same order. This rule ceases to be absolute when we start dealing with numbers like 0.999... since 1 = 0.999... </p>
+        </div>
+        <div class="text-block">
+            <p>The rule given to the left is used for comparing integers/counting numbers. If you try to use it to compare other numbers, like 1 and 0.999... you will only consider the ones place and assume 1 > 0.999... This is an error similar to the mistake made earlier with cash.</p>
+        </div>
+    </div>
+
+    <div class="content-row">
+        <div class="text-block">
+            <h1>Each rod of the abacus has a name/index</h1>
+            <p>From left to right, rod 0, 1, 2, 3, 4, 5, 6, 7, and 8. There is 1 active bead on rod 0 and 9 active beads on rod 8 et cetera.</p>
+        </div>
+        <div class="image-block">
+            <img src="pictures/image1.jpeg" alt="Placeholder">
+        </div>
+    </div>
+
+    <div class="content-row">
+        <div class="text-block">
+            <h1>How are calculations performed on an abacus?</h1>
+        </div>
+        <div class="image-block">
+            <!-- Reserved for potential image -->
+        </div>
+    </div>
+    
+    <div class="content-row">
+        <div class="text-block">
+            <p>The abacus is like a posable figurine, numbers represented with the beads on the rods correspond to poses. Sequences of these poses can be called dances. Counting frame dances are calculations. Because humans have arms, legs, eyes, etc. our poses/dances involve arms, legs, eyes, etc., whereas the abacus’ dances involve the moveable beads slid into active or inactive positions.</p>
+        </div>
+        <div class="text-block">
+            <p>The final pose of an abacus’ dance often gives us the result of a calculation. By observing an abacus’ dance routine, we can learn the steps and result of the computation it corresponds to. As in human or animal dances, moves/gestures/steps are not just motions, going from one pose to some other pose, they serve a purpose within a routine.</p>
+        </div>
+    </div>
+
+    <div class="content-row">
+        <div class="text-block">
+            <h1>The dance analogy is not perfect</h1>
+        </div>
+        <div class="text-block">
+            <p>Human dances are often very dynamic, with many different parts at opposite ends moving at once: arms, legs, fingers etc. In abacus “dances” only beads on at most 2 adjacent rods are moved each step.</p>
+        </div>
+    </div>
+
+    <div class="content-row">
+        <div class="text-block">
+            <h2>Napier's Bones</h2>
+            <p>For some operations we’re using a modified version of Napier’s Bones, shown right.</p>
+        </div>
+        <div class="image-block">
+            <img src="pictures/napiersFull2ndAttempt.png" alt="Napier's Bones">
+        </div>
+    </div>
+
+    <div class="content-row">
+        <div class="text-block">
+            <p>We will be printing out these grids, cutting them into strips and drawing the lattice on them.</p>
+        </div>
+        <div class="image-block">
+            <img src="pictures/Screenshot 2026-03-02 144517.png" alt="Grids for printing">
+        </div>
+    </div>
+    
+    <a href="instructionsForMaking1.html" class="link-button">Making an abacus</a>
+</div>
+
+</body>
+</html>

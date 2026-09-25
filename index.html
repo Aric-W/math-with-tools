@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math With Tools</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* --- UPDATED: Header --- */
+        header {
+            position: relative; 
+            z-index: 100;
+        }
+
+        /* --- UPDATED: Abacus Background --- */
+        #abacus-group {
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            z-index: 1; 
+            display: flex; 
+            width: 100%;
+            height: 100%;
+            overflow: hidden; 
+        }
+
+        #abacus-group img {
+            width: 15px;
+            height: 100%; 
+            object-fit: cover;
+        }
+
+        /* Mobile Menu Toggle Button (Hidden on Desktop) */
+        .menu-toggle {
+            display: none;
+            position: relative;
+            z-index: 200;
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 18px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            position: relative; 
+            z-index: 10; 
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 45px 0;
+        }
+
+        .navbar > li {
+            position: relative;
+            margin: 0 20px;
+        }
+
+        /* Main Menu Links */
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 10px 15px;
+            display: block;
+            border-radius: 4px;
+            background-color: rgba(51, 51, 51, 0.8);
+            transition: background 0.3s ease;
+        }
+
+        .navbar a:hover {
+            background-color: #555;
+        }
+
+        /* Dropdown Container */
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #444;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            list-style: none;
+            border-radius: 4px;
+            z-index: 1000;
+        }
+
+        /* Dropdown Headings (Replaced Invalid h1 tags) */
+        .dropdown-heading {
+            color: #fff;
+            font-size: 1.2em;
+            font-weight: bold;
+            padding: 15px 16px 5px 16px;
+            margin: 0;
+            border-bottom: 1px solid #666;
+        }
+
+        /* Dropdown Links */
+        .dropdown li a {
+            padding: 12px 16px;
+            font-size: 14px;
+            background-color: #444; 
+        }
+
+        .dropdown li a:hover {
+            background-color: #666;
+        }
+
+        /* Show Dropdown on Hover */
+        .navbar li:hover .dropdown {
+            display: block;
+        }
+        
+        .page-content {
+            padding: 50px 20px;
+            text-align: center;
+        }
+        
+        .link-button { 
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .rotated-img {
+            transform: rotate(-90deg);
+            max-width: 30%;
+            height: auto;
+            margin: 30px 0;
+        }
+
+        /* ====================================================
+           MOBILE STYLES (Applies only to screens under 768px) 
+           ==================================================== */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block; /* Show hamburger menu button */
+            }
+
+            .navbar {
+                display: none; /* Hide standard flex row */
+                flex-direction: column;
+                padding: 0;
+                background-color: rgba(51, 51, 51, 0.95);
+            }
+
+            /* Class toggled by JavaScript to show menu */
+            .navbar.active {
+                display: flex;
+            }
+
+            .navbar > li {
+                margin: 0;
+                border-bottom: 1px solid #444;
+            }
+
+            .navbar a {
+                border-radius: 0;
+                background-color: transparent;
+                padding: 15px 20px;
+            }
+
+            .dropdown {
+                position: static; /* Pushes content down instead of floating over it */
+                box-shadow: none;
+                width: 100%;
+                background-color: #333;
+            }
+
+            .dropdown li a {
+                background-color: #333;
+                padding-left: 40px; /* Indent sub-links for clarity */
+            }
+
+            .rotated-img {
+                max-width: 60%; /* Image is bigger on mobile so it can be read */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <!-- Mobile Menu Toggle Button -->
+        <div class="menu-toggle" id="mobile-menu-btn">☰ Menu</div>
+
+        <div id="abacus-group"></div>
+
+        <ul class="navbar" id="nav-menu">
+            <li>
+                <a href="projectInfo.html">About this project</a>
+            </li>
+
+            <li>
+                <a href="#">articles and information▾</a>
+                <ul class="dropdown">
+                    <li><a href="whatIsAnAbacus.html">What is an abacus?</a></li>
+                    <li><a href="why.html">why use an abacus?</a></li>
+                    <li><a href="abacusGallery1.html">A little abacus gallery</a></li>
+                    <li><a href="representingNumbers.html">How to represent numbers?</a></li>
+                    <li><a href="instructionsForMaking1.html">How to make an abacus</a></li>
+                    <li><a href="introductionToAsciiAbacus.html">Introduction to the ascii art abacus</a></li>
+                    <li><a href="abacusHumans.html">Humans are abacuses and more</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#">Ascii Art Abacus▾</a>
+                <ul class="dropdown">
+                    <!-- Changed h1 to styled list items to fix HTML validation & layout bugs -->
+                    <li class="dropdown-heading">integer</li>
+                    <li><a href="handsCounting1.html">incrementing with hands</a></li>
+                    <li><a href="example4.html">increment</a></li>
+                    <li><a href="example5.html">decrement</a></li>
+                    <li><a href="example6.html">side-by-side</a></li>
+                    <li><a href="example1.html">famous 123456789 example</a></li>
+                    <li><a href="basicAddAndSubt.html">adding and subtracting multi-digi</a></li>
+                    <li><a href="randomDigitAddSubt.html">adding and subtracting random digits</a></li>
+                    <li><a href="multiplication.html">two ways to multiply</a></li>
+                    <li><a href="divisionText.html">division text</a></li>
+                    <li><a href="division.html">division</a></li>
+                    <li><a href="squareRoot.html">square root</a></li>
+                    <li><a href="fib1.html">fibonacci</a></li>
+                    <li><a href="page7.html">Lattice multiplication</a></li>
+                    
+                    <li class="dropdown-heading">binary</li>
+                    <li><a href="example4Binary.html">counting up in binary</a></li>
+                    <li><a href="example5Binary.html">counting down in binary</a></li>
+                    <li><a href="binaryAddAndSubt.html">adding and subtracting on a binary abacus</a></li>
+                    <li><a href="page8.html">Binary Lattice multiplication</a></li>
+                    <li><a href="binAbacPage.html">Binary Long Division</a></li>
+                    
+                    <li class="dropdown-heading">rational</li>
+                    <li><a href="ratMult.html">multiplying rational numbers</a></li>
+                    <li><a href="ratMultLat.html">multiplying rational numbers with a lattice</a></li>
+                    <li><a href="divRat.html">ratios of rational numbers</a></li>
+                    <li><a href="addAndSubtRat.html">adding and subtracting rational numbers</a></li>
+                    <li><a href="sqrtRational.html">square roots of rationals</a></li>
+                    <li><a href="newtonsDemo.html">a demo with initial guess = 4 finding the cube root of 27</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="externalResources.html">external resources</a>
+            </li>
+        </ul>
+    </header>
+
+    <div class="page-content">
+        <h1>Welcome to Be Your Own Calculator</h1>
+        <!-- Added a class here for the rotated image -->
+        <img src="./pictures/lap7Corr.png" class="rotated-img" alt="Rotated Image">
+        <p>You can start with the article "what is an abacus?" under "articles and information"</p>
+        <a href="whatIsAnAbacus.html" class="link-button">start here</a>
+        <a href="handsCounting1.html" class="link-button">interactive section</a>
+    </div>
+
+    <script>
+        // Draw Abacus background
+        const container = document.getElementById('abacus-group');
+        for (let i = 0; i < 120; i++) {
+            let rodNumber = i % 10; 
+            let img = document.createElement('img');
+            img.src = `assets/${rodNumber}Rod4.png`;
+            container.appendChild(img);
+        }
+
+        // Mobile Menu Toggle Logic
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const navMenu = document.getElementById('nav-menu');
+
+        mobileBtn.addEventListener('click', () => {
+            // Toggles the 'active' class on and off when clicked
+            navMenu.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

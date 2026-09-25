@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is an abacus</title>
+    <style>
+        /* General page styling */
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 20px;
+            line-height: 1.6;
+            margin: 0;
+            padding: 40px 20px;
+            background-color: #fcfcfc;
+            color: #333;
+        }
+
+        /* Container to center the content and limit its maximum width */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto; 
+        }
+        
+        /* Navigation styling */
+        nav {
+            margin-bottom: 20px;
+        }
+
+        nav a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* The row that holds the two columns */
+        .content-row {
+            display: flex;
+            align-items: center; /* Aligns text and images nicely in the middle */
+            gap: 40px; /* The invisible space between the two columns */
+            margin-bottom: 60px; /* The space between rows */
+        }
+
+        /* The left column (Text) */
+        .text-block {
+            flex: 1; /* Takes up exactly 50% of the row */
+        }
+
+        /* The right column (Image) */
+        .image-block {
+            flex: 1; /* Takes up exactly 50% of the row */
+            text-align: center;
+        }
+
+        /* Ensures images never break out of their column */
+        .image-block img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 4px; /* Optional: gives a slight rounding to image corners */
+            margin: 0 auto; /* Ensures images stay centered when stacked on mobile */
+        }
+
+        /* Button styling */
+        .link-button { 
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 15px;
+            margin-bottom: 40px;
+            text-align: center;
+            transition: background 0.3s;
+        }
+
+        .link-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* ====================================================
+           MOBILE STYLES (Applies only to screens under 768px) 
+           ==================================================== */
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 15px; /* Less padding on small screens */
+                font-size: 18px; /* Slightly smaller text for better mobile reading */
+            }
+
+            .content-row {
+                flex-direction: column; /* Stack text and images vertically */
+                gap: 20px;
+                margin-bottom: 40px; /* Reduce space between stacked rows */
+            }
+
+            .link-button {
+                display: block;
+                width: 100%; /* Full width button for easier tapping on mobile */
+                box-sizing: border-box; /* Prevents button from spilling off screen */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- Moved Navigation inside the body where it belongs -->
+        <nav><a href="index.html">← Back to Home</a></nav>
+                
+        <h1>What is an abacus?</h1>
+        
+        <div class="content-row">
+            <div class="text-block">
+                <p>An abacus or counting frame is a device for performing bead arithmetic.
+                For this project we are using an East Asian variant. 
+                The abacus is composed of moveable beads on fixed rods in a frame; you can represent numbers by the position of beads on the rods.
+                Counting frames can have any number of rods.</p>
+            </div>
+            <div class="image-block">
+                <img src="pictures/image0158.jpeg" alt="Abacus variant">
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+                <p>The appearance and structure of the abacus. A recently handmade all-wood counting frame.</p>
+            </div>
+            <div class="image-block">
+                <img src="pictures/IMG_0137.jpeg" alt="Handmade wooden counting frame">
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+                <p>Our abacus with rulers for scale</p>
+            </div>
+            <div class="image-block">
+                <img src="pictures/image0.jpeg" alt="Abacus with rulers">
+            </div>
+        </div>
+
+         <div class="content-row">
+            <div class="text-block">
+               <p>Upper beads, also called the “upper deck” and sometimes “heaven beads”. “Upper bead(s)” is used both when talking about several rods’ upper beads and a single rod’s upper bead.</p>
+            </div>
+            <div class="image-block">
+                <img src="pictures/IMG_0137UD.png" alt="Upper beads">
+            </div>
+        </div>
+
+         <div class="content-row">
+            <div class="text-block">
+               <p>Middle bar</p>
+            </div>
+            <div class="image-block">
+                <img src="pictures/IMG_0137MB.png" alt="Middle bar">
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+               <p>The bottom/lower beads, also known as the “lower deck” or “earth beads”. “Lower beads” is used interchangeably when talking about several rods’ lower beads or a single rod’s lower beads.</p>
+            </div>
+            <div class="image-block">
+                <img src="pictures/IMG_0137LD.png" alt="Lower beads">
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+               <p>The abacus that we’re using throughout this project has the following structure: a middle bar, one upper bead and five lower beads. This one happens to have 9 rods, but we will work with arbitrarily many rods, students working with abacuses in a classroom setting can share abacuses if needs be.</p> 
+            </div>
+            <div class="image-block">
+                <img src="pictures/image1.jpeg" alt="Abacus structure">
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+               <p>Operating an abacus. The sort of Abacus we’re using is not double sided, it has a front (or face) and a back, the beads and rods are more recessed when viewed from the back, these kinds of counting frames are operated face up with the back laid flat against a level surface. Left: the backs of various abacuses.</p>
+            </div>
+            <div class="image-block">
+                <img src="pictures/image70.jpeg" alt="Backs of various abacuses">
+            </div>
+        </div>
+
+        <a href="why.html" class="link-button">why use an abacus</a>
+
+    </div> <!-- Added missing closing div for container -->
+
+</body>
+</html>

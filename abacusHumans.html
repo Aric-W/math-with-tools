@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Human abacus</title>
+    <style>
+        /* CSS Variables for consistent spacing */
+        :root {
+            --space-sm: 20px;
+            --space-md: 40px;
+            --space-lg: 60px;
+        }
+
+        /* General page styling */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 16px; /* Better base size for mobile */
+            line-height: 1.6;
+            margin: 0;
+            padding: var(--space-sm);
+            background-color: #fcfcfc;
+            color: #333;
+        }
+
+        /* Container to center the content */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto; 
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 1.8rem;
+            margin-top: 1.5em;
+            margin-bottom: 0.5em;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            margin-top: 1.2em;
+            margin-bottom: 0.5em;
+        }
+
+        p, ul, ol {
+            margin-bottom: 1em;
+        }
+
+        /* Navigation */
+        nav a {
+            display: inline-block;
+            padding: 10px 0;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Layout Structure (Mobile First) */
+        .content-row {
+            display: flex;
+            flex-direction: column; /* Stack vertically on mobile */
+            gap: var(--space-sm);
+            margin-bottom: var(--space-md);
+        }
+
+        .text-block, .image-block {
+            width: 100%;
+        }
+
+        .image-block {
+            text-align: center;
+        }
+
+        /* Image styling */
+        .image-block img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 8px; /* Slightly softer corners */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Subtle depth */
+        }
+
+        /* Touch-friendly Action Button */
+        .link-button { 
+            display: block; /* Full width on mobile */
+            width: 100%;
+            box-sizing: border-box;
+            padding: 15px 20px; /* Larger touch target */
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: background-color 0.2s ease;
+        }
+
+        .link-button:active, .link-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Desktop responsiveness */
+        @media (min-width: 768px) {
+            body {
+                font-size: 18px;
+                padding: var(--space-md);
+            }
+
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.6rem; }
+
+            .content-row {
+                flex-direction: row; /* Side-by-side on larger screens */
+                align-items: center;
+                gap: var(--space-md);
+                margin-bottom: var(--space-lg);
+            }
+
+            /* Ensures equal width columns when side-by-side */
+            .text-block, .image-block {
+                flex: 1; 
+            }
+
+            /* Limit button width on desktop */
+            .link-button {
+                display: inline-block;
+                width: auto;
+                padding: 12px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <nav><a href="index.html">← Back to Home</a></nav>
+                
+        <h1>Humans are abacuses and more</h1>
+        
+        <div class="content-row">
+            <div class="text-block">
+                <p>The counting frame was possibly inspired by human anatomy.</p>
+            </div>
+            <div class="text-block">
+                <p>Recall our definition of "active" bead: a bead on a rod is active if it touches the middle bar or another bead that touches the middle bar. A bead only counts if it's active. On a rod we have an upper bead which counts for 5 lower beads and each lower bead counts for 1.</p>
+            </div>
+            <div class="text-block">
+                <p>Similarly we have a pair of human hands. An open right hand (for example) has 5 extended fingers so it counts for 5 similar to an active upper bead while 0, 1, 2, etc extended fingers on the left hand, just like lower beads, count for 0, 1, 2, etc as shown below.</p>
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="image-block">
+                <img src="pictures/0hands1.png" alt="0 hands">
+            </div>
+            <div class="image-block">
+                <img src="pictures/1hands1.png" alt="1 hands">
+            </div>
+            <div class="image-block">
+                <img src="pictures/2hands1.png" alt="2 hands">
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+                <p>With this scheme humans can represent 0-10 on a pair of hands and have two ways of representing 5, just like with beads on our frame.</p>
+            </div>
+            <div class="image-block">
+                <img src="pictures/5hands1.png" alt="5 hands">
+            </div>
+            <div class="image-block">
+                <img src="pictures/Fhands1.png" alt="F hands">
+            </div>
+        </div>
+    
+        <div class="content-row">
+            <div class="text-block">
+                <p>Therefore, humans are abacuses with at most 1 rod.</p>
+            </div>
+            <div class="text-block">
+                <p>If a person has 2 hands with 5 fingers each then they have 1 rod. If they lack these they have 0 rods.</p>
+            </div>
+            <div class="text-block">
+                <p>Using an abacus for math is exactly like using the natural digits/fingers. Only we need more rods or pairs of hands to do complex arithmetic.</p>
+            </div>
+            <div class="text-block">
+                <p>Hence by using an abacus you are giving yourself more rods than the one you may already have.</p>
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+                <p>Just as the human abacus can display the digit 9 with an open hand and 4 fingers, the other abacus can display the same digit with an active heaven/upper bead and 4 active earth/lower beads.</p>
+            </div>
+            <div class="image-block">
+                <img src="pictures/9hands1.png" alt="9 hands">
+            </div>
+            <div class="image-block">
+                <img src="assets/9Rod4.png" alt="9 rod 4">
+            </div>
+        </div>
+
+        <h1>Long division</h1>
+        <div class="content-row">
+            <div class="image-block">
+                <img src="pictures/divText1.png" alt="Division Step 1">
+            </div>
+            <div class="image-block">
+                <img src="pictures/divText2.png" alt="Division Step 2">
+            </div>
+            <div class="image-block">
+                <img src="pictures/divText3.png" alt="Division Step 3">
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+                <p>Long division (ld) can be done with an abacus. There are other abacus methods for this operation, <a href="https://en.wikibooks.org/wiki/Traditional_Abacus_and_Bead_Arithmetic/Division/Modern_and_traditional_division;_close_relatives">see here</a>.</p>
+            </div>
+            <div class="text-block">
+                <p>These other methods rely on trial-and-error and mathematical intuition, ld is more reliable and consistent.</p>
+            </div>
+            <div class="text-block">
+                <p>An interactive page for text-based ld has been provided for the user's benefit to make the abacus version seem less mysterious. ld turns the dividend into a minuend that gets reduced by subtrahends that are the divisor multiplied by a digit from 0 to 9 and a power of 10, and the user can see that in both abacus and text ld.</p>
+            </div>
+        </div>
+
+        <h1>Lattice methods</h1>  
+        <h2>The multiplication lattice</h2>
+        
+        <div class="content-row">
+            <div class="text-block">
+                <p>With a lattice we can reduce multi-digit number multiplication to single-digit number multiplication. The times table tells us how to do this operation for any number.</p>
+            </div>
+            <div class="image-block">
+                <img src="./pictures/latticeExample1.png" alt="Lattice example">
+            </div> 
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+                <p>We can use the lattice method for binary numbers.</p>
+            </div>
+            <div class="image-block">
+                <img src="./pictures/binary1.png" alt="Binary lattice">
+                <p><em>1011 (11) times 101 (5)</em></p>
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+                <p>We can use it for any terminating decimal numbers, it works the same as doing it on integers: it gives us the right digits in the right order. Only we have to be aware of the case where one or more of the multiplicands is less than 1.</p>
+            </div>
+            <div class="image-block">
+                <img src="./pictures/lattice1.png" alt="Decimal lattice">
+                <p><em>0.66 times 0.99, two numbers less than 1.</em></p>
+            </div>
+        </div>
+
+        <h2>Napier's Bones</h2>
+        <div class="content-row">
+            <div class="text-block">
+                <p>In addition to the multiplication lattice, we can use Napier's Bones for long division and finding square roots, it works by giving us each digit one at a time and completing the square.</p>
+            </div>
+            <div class="image-block">
+                <img src="./pictures/nextDigitDiv1.png" alt="Napier's Bones Division">
+            </div> 
+            <div class="image-block">
+                <img src="./pictures/nextDigitSqrt1.png" alt="Napier's Bones Square Root">
+            </div> 
+        </div>
+
+        <h2>Binary Frame</h2>
+        <div class="content-row">
+            <div class="text-block">
+                <p>The upper deck/beads of our handmade multi-digit abacus can be used for binary.</p>
+            </div>
+            <div class="image-block">
+                <img src="./pictures/binAbacusPhoto1.png" alt="Binary Abacus Photo">
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+                <p>Part of the motivation for using binary numbers is much simpler arithmetic.</p>
+            </div>
+            <div class="text-block">
+                <ol>
+                    <li>The rules for borrowing and carrying alone determine the results of subtraction and addition. You don't carry if you add a 1 to a 0 or borrow if you subtract a 1 from 1.</li>
+                    <li>Fewer symbols to deal with. For example, we don't need "2+2=4" or similar basic rules because "2" and "4" aren't used in this context.</li>
+                    <li>The times table is much smaller: 2X2 instead of 10X10 for decimal.</li>
+                    <li>When doing binary long division you don't need to use a technique like Napier's bones.</li>
+                </ol>
+            </div>
+        </div>
+
+        <h2>Newton's Method</h2>
+        <div class="content-row">
+            <div class="text-block">
+                <p>The last page of the interactive section contains a demo showing Newton's method (NM) for finding the cube root of 27 with an abacus and an initial guess of 4.</p>
+            </div>
+            <div class="image-block">
+                <img src="./pictures/newtons1.png" alt="Newton's Method on Abacus">
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+                <ul>
+                    <li>Newton's method (NM) is a numerical algorithm used in data science and machine learning.</li>
+                    <li>We use it to find where a function is 0 from an initial guess. We guess, get (hopefully) a better guess then plug that back in.</li>
+                    <li>All we need to do it in this case is all basic arithmetic operations for arbitrary rational numbers and the famous <a href="https://www.mathsisfun.com/calculus/power-rule.html">power rule</a> for polynomials from calculus.</li>
+                    <li>For historical details on the power rule see The History of the Calculus and Its Conceptual Development By Carl B. Boyer.</li>
+                </ul>
+            </div>
+
+            <div class="text-block">
+                <ul>
+                    <li>In our Demo we guess 4, get an answer, truncate it to 3.2 and plug that back in.</li>
+                    <li>For NM there are three inputs: the guess, how much we truncate, and how many times we run the algorithm.</li>
+                    <li>I felt it would be too complicated for the user if I let them handle those with input.</li>
+                    <li>NM converges fast, which means that if we truncate too much it will quickly get "stuck" at an inaccurate answer and will return it to us no matter how many times we run it. Here it worked out, if we shorten 3.012239583334 to 3.0 we get the right answer.</li>
+                </ul>
+            </div>
+        </div>
+
+        <a href="handsCounting1.html" class="link-button">Counting using natural rods</a>
+
+    </div>
+</body>
+</html>

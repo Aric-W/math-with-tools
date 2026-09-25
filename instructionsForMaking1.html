@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <style>
+        /* General page styling */
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 18px; /* Slightly reduced base font size */
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px 15px; /* Reduced padding to save screen space on mobile */
+            background-color: #fcfcfc;
+            color: #333;
+        }
+
+        /* Container to center the content and limit its maximum width */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto; 
+        }
+
+        /* Touch-friendly navigation */
+        nav {
+            margin-bottom: 20px;
+        }
+        nav a {
+            display: inline-block;
+            padding: 10px 0; /* Increased touch target area for mobile */
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        /* The row that holds the two columns */
+        .content-row {
+            display: flex;
+            align-items: center; 
+            gap: 40px; 
+            margin-bottom: 50px; 
+        }
+
+        /* The left column (Text) */
+        .text-block {
+            flex: 1; 
+        }
+
+        /* The right column (Image) */
+        .image-block {
+            flex: 1; 
+            text-align: center;
+        }
+
+        /* Ensures images never break out of their column */
+        .image-block img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px; /* Slightly softer corners */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle depth to separate images from background */
+        }
+
+        /* Link Button */
+        .link-button { 
+            display: block; /* Changed to block for easier centering */
+            width: fit-content;
+            padding: 15px 25px; /* Larger touch target */
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            margin: 30px auto; /* Centered with spacing */
+            text-align: center;
+            font-weight: bold;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px; /* Scale down text for readability on small screens */
+                padding: 15px 10px;
+            }
+            .content-row {
+                flex-direction: column; /* Stacks text and images vertically */
+                gap: 15px; /* Tighter gap between text and image when stacked */
+                margin-bottom: 40px;
+            }
+            /* Order shift: optionally ensure text is always above images on mobile */
+            .text-block {
+                order: 1;
+            }
+            .image-block {
+                order: 2;
+                width: 100%; /* Ensures image block takes full width */
+            }
+            .link-button {
+                width: 100%; /* Full width button on mobile for easy tapping */
+                box-sizing: border-box;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav><a href="index.html">← Back to Home</a></nav>
+        
+        <h1>how to make an abacus</h1>
+
+        <div class="content-row">
+            <div class="text-block">
+                <ul>
+                    <li>$6.50+$11.09=$17.59, less than $20</li>
+                    <li>The price of the beads went up when I went back two weeks later</li>
+                </ul>
+            </div>
+            <div class="image-block">
+                <img src="pictures/recep01.png" alt="Receipt">
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+                <h2>Packaging</h2>
+            </div>
+            <div class="image-block">
+                <img src="pictures/packFront0.jpeg" alt="Packaging front">
+            </div>
+        </div>
+
+         <div class="content-row">
+            <div class="text-block">
+            </div>
+            <div class="image-block">
+                <img src="pictures/packBack0.jpeg" alt="Packaging back">
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+                <p>All supplies used to make the first two abacuses</p>
+            </div>
+            <div class="image-block">
+                <img src="pictures/sup0.jpeg" alt="Supplies">
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+                <p>We start by putting a mark every 1.5 cm along the length of a craft stick</p>
+            </div>
+            <div class="image-block">
+                <img src="pictures/marks0.jpeg" alt="Marking sticks">
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+                <p>I like to draw straight guidelines on the same stick so I will have something to lay the dowels/rods along.</p>
+            </div>
+            <div class="image-block">
+                <img src="pictures/lines0.jpeg" alt="Drawing guidelines">
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+                <p>We’re making the back first, to do this we glue three craft sticks together three times, above is two craft sticks glued together along their faces</p>
+            </div>
+            <div class="image-block">
+                <img src="pictures/twoSticks0.jpeg" alt="Glued sticks">
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+                <p>We are currently waiting for the back’s glue to set. We cut the 12’’ dowels in half, we need nine rods that are about 6’’ each.</p>
+            </div>
+            <div class="image-block">
+                <img src="pictures/rod0.jpeg" alt="Cutting dowels">
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+                <p>The first two times I did this I used a box cutter, for this tutorial I wanted something less sharp, so I used the butter knife pictured</p>
+            </div>
+            <div class="image-block">
+                <img src="pictures/rod1.jpeg" alt="Using a butter knife">
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+                <p>Two “sandwich” pieces made from 3 craft sticks glued together along their faces; these serve as the back of the abacus.</p>
+            </div>
+            <div class="image-block">
+                <img src="pictures/sand0.jpeg" alt="Sandwich pieces">
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+                <p>Next, we glue the rods to the bottom bar one at a time and let dry until we get the comb-like object on the right.</p>
+            </div>
+            <div class="image-block">
+                <img src="pictures/comb5.jpeg" alt="Comb-like rods">
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+                <p>There should be enough room on the lower deck for seven beads, we are making the lower deck first.</p>
+            </div>
+            <div class="image-block">
+                <img src="pictures/7beads1.jpeg" alt="7 beads">
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+                <p>Once the beads are placed on the rods, we apply more glue to the rods on the bottom bar and glue the rods to the middle bar</p>
+            </div>
+            <div class="image-block">
+                <img src="pictures/filled0.jpeg" alt="Placing beads">
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+                <p>Glue on the faces of the bottom and middle bars. Apply weight and let glue dry.</p>
+            </div>
+            <div class="image-block">
+                <img src="pictures/bars1.jpeg" alt="Applying glue">
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+                <p>A side view of the middle bar glued together. I strongly recommend applying weight when pasting the craft sticks to help the glue set and prevent the wood from warping. I suggest using an evenly-distributed weight like a block of wood, a 6lb unopened box of sparkling water seems to do the trick, previously I used 8oz rolls of quarters, but these are too easily stolen for public use, jars (containing wood beads, cat treats, etc.) are too improvisational in my opinion but seemed to work, I advise against using dumbbells.</p>
+            </div>
+            <div class="image-block">
+                <img src="pictures/mid1.jpeg" alt="Side view">
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+                <p>Place the upper beads, there should be enough room in the upper deck for two beads on each rod. And glue the rods to the back. Let dry.</p>
+            </div>
+            <div class="image-block">
+                <img src="pictures/placed.jpeg" alt="Upper beads">
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+                <p>Apply more glue, then put on the front of the top bar and then apply weight, but try not to put weight on the beads.</p>
+            </div>
+            <div class="image-block">
+                <img src="pictures/moreGlue.jpeg" alt="More glue">
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+            </div>
+            <div class="image-block">
+                <img src="pictures/preWeight.jpeg" alt="Pre-weight setup">
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+                <h1>We're all done!</h1>
+                <p>Close to $30 for 3 handmade abacuses, enough supplies to make one more and some materials left over after that. As mentioned earlier recycled plastic or something else might be a better material. It took 4.5 rods, 12 craft sticks, 54 beads and a judicious amount of glue.</p>
+            </div>
+            <div class="image-block">
+                <img src="pictures/final.jpeg" alt="Finished abacus">
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+                <p>We start by putting a mark every 1.5 cm along the length of a craft stick.</p>
+            </div>
+            <div class="image-block">
+                <img src="pictures/rod1.jpeg" alt="Marking stick">
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+                <h2>Results and leftovers</h2>
+                <ul> 
+                    <li>I was able to make two abacuses and have some supplies leftover for under $20</li>
+                    <li>The beads and the dowels were the priciest and came in limited supply</li>
+                    <li>I could only get 12-inch dowels, and I had to cut them in half with a boxcutter</li>
+                    <li>I also had at least 3/4 of the 4 oz bottle of glue left over</li>
+                </ul>
+            </div>
+            <div class="image-block">
+                <img src="pictures/results0.jpeg" alt="Results">
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block"></div>
+            <div class="image-block">
+                <img src="pictures/leftover0.jpeg" alt="Leftovers">
+            </div>
+        </div>
+
+         <div class="content-row">
+            <div class="text-block">
+                <h2>What if I want more rods on my abacus?</h2>
+                <p>Nine rods is common. From the Gallery page it can be seen that you'll find frames with more rods. The standard way to get more rods is to put two abacuses next to each other.</p>
+            </div>
+            <div class="image-block">
+                <img src="pictures/lap1Corr.png" alt="Two abacuses">
+            </div>
+        </div>
+
+         <div class="content-row">
+            <div class="text-block">
+                <p>You can make an abacus with 18 rods by glueing two smaller ones together.</p>
+            </div>
+            <div class="image-block">
+                <img src="pictures/lap9.jpeg" alt="18-rod abacus">
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+                <p>With hinging tape and two smaller ones you can make a compact 18-rod frame.</p>
+            </div>
+            <div class="image-block">
+                <img src="pictures/lap8.jpeg" alt="Hinged abacus">
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+                <h2></h2>
+            </div>
+            <div class="image-block">
+                <img src="pictures/lap7Corr.png" alt="Hinge detail">
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+                <p>For the folding version you will need these hinge pieces for the face. To make these you will cut the tape into little pieces. I used 2.5 cm with each piece of tape. I cut off the rounded edges of the sticks and taped them together with adhesive side to adhesive side.</p>
+            </div>
+            <div class="image-block">
+                <img src="pictures/lap3Corr.png" alt="Hinge pieces">
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+                <h2></h2>
+            </div>
+            <div class="image-block">
+                <img src="pictures/lap2.jpeg" alt="Assembled hinge">
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+                <h4>Warning!</h4>
+                <p>You can't cut hinging tape with scissors or the edges will fray, so you will need a sharp knife. Note that previously you only needed a butterknife to divide the dowels.</p>
+            </div>
+            <div class="image-block">
+                <img src="pictures/lap10.jpeg" alt="Cutting tape">
+            </div>
+        </div>
+ 
+        <div class="content-row">
+            <div class="text-block">
+                <p>All of the handmade frames, 5 9-rod abacuses worth of material. 45 rods total. There are enough beads and dowels left to make one more. There are many more craft sticks and much more tape and glue left over.</p>
+            </div>
+            <div class="image-block">
+                <img src="pictures/lap4Corr.png" alt="All materials">
+            </div>
+        </div>
+
+         <div class="content-row">
+            <div class="text-block">
+                <p>All seven receipts. $11.09 + $7.36 + $6.50 + $7.36 + $21.68 + $7.25 + $4.33 = $65.57 for 6 nine-rod abacuses and some supplies left over. Note that nearly a third of that sum was spent on the fabric tape.</p>
+            </div>
+            <div class="image-block">
+                <img src="pictures/lap5Cens1.png" alt="Receipts">
+            </div>
+        </div>
+
+        <a href="introductionToAsciiAbacus.html" class="link-button">Introduction to a digital abacus</a>
+    </div>
+</body>
+</html>

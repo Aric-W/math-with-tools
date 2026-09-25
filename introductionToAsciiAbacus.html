@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to the ASCII Art Abacus</title>
+    <style>
+        :root {
+            --base-bg: #fcfcfc;
+            --text-color: #333;
+            --link-color: #007bff;
+        }
+
+        /* General page styling */
+        body {
+            font-family: Arial, sans-serif;
+            /* Fluid font size: scales between 16px and 22px based on screen width */
+            font-size: clamp(16px, 2.5vw, 22px); 
+            line-height: 1.4;
+            margin: 0;
+            background-color: var(--base-bg);
+            color: var(--text-color);
+        }
+
+        .page-header {
+            position: relative;
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            color: black;
+            padding: 0 15px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            position: relative;
+            z-index: 10;
+            margin: 0;
+            font-size: clamp(20px, 4vw, 36px);
+            background: rgba(252, 252, 252, 0.8); /* Adds slight readability layer over background */
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        /* --- Abacus Background --- */
+        #abacus-group {
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            z-index: 1; 
+            display: flex; 
+            width: 100%;
+            height: 100%;
+            overflow: hidden; 
+        }
+
+        #abacus-group img {
+            width: 15px;
+            height: 100%; 
+            object-fit: fill; 
+        }
+
+        nav {
+            padding: 10px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        nav a {
+            color: var(--link-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Container to center the content */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto; 
+            padding: 20px;
+        }
+
+        /* The row that holds the two columns */
+        .content-row {
+            display: flex;
+            align-items: center; 
+            gap: 40px; 
+            margin-bottom: 60px; 
+        }
+
+        .text-block, .image-block {
+            flex: 1; 
+        }
+
+        .image-block {
+            text-align: center;
+        }
+
+        .image-block img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 4px; 
+        }
+
+        h2, h3, h4 {
+            margin-top: 0;
+            line-height: 1.2;
+        }
+
+        .center-text {
+            text-align: center;
+        }
+
+        /* Ensures ASCII art rods align perfectly regardless of screen size */
+        .ascii-art {
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            line-height: 1.1;
+            font-size: clamp(20px, 4vw, 28px);
+            margin-bottom: 10px;
+        }
+
+        .link-button { 
+            display: block; /* Makes touch target larger on mobile */
+            width: fit-content;
+            padding: 12px 24px;
+            background-color: var(--link-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 30px auto;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        ul, ol {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        /* Mobile responsiveness: stacks columns on small screens */
+        @media (max-width: 768px) {
+            .content-row {
+                flex-direction: column;
+                gap: 30px;
+                margin-bottom: 40px;
+            }
+            .text-block, .image-block {
+                width: 100%;
+            }
+            .image-block h2, .image-block h3 {
+                text-align: center !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="page-header">
+        <div id="abacus-group"></div>
+        <h1>Introduction to the AAA: Ascii Art Abacus</h1>
+    </header>
+
+    <nav><a href="index.html">← Back to Home</a></nav>
+
+    <div class="container">
+        
+        <div class="content-row">
+            <div class="text-block">
+                <h3 class="center-text">ASCII Rods</h3>
+            </div>
+            <div class="image-block">
+                <h3 style="text-align: left;">Physical Rods</h3>
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+                <p class="ascii-art">
+=<br>O<br>|<br>=<br>|<br>|<br>O<br>O<br>O<br>O<br>O<br>=
+                </p>
+                <h2 class="center-text">0</h2>
+            </div>
+            <div class="image-block">
+                <img src="assets/0Rod4.png" alt="Abacus Rod 0">
+                <h2 style="text-align: center;">0</h2>
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+                <p class="ascii-art">
+=<br>O<br>|<br>=<br>O<br>|<br>|<br>O<br>O<br>O<br>O<br>=
+                </p>
+                <h2 class="center-text">1</h2>
+            </div>
+            <div class="image-block">
+                <img src="assets/1Rod4.png" alt="Abacus Rod 1">
+                <h2 style="text-align: center;">1</h2>
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+                <p class="ascii-art">
+=<br>O<br>|<br>=<br>O<br>O<br>|<br>|<br>O<br>O<br>O<br>=
+                </p>
+                <h2 class="center-text">2</h2>
+            </div>
+            <div class="image-block">
+                <img src="assets/2Rod4.png" alt="Abacus Rod 2">
+                <h2 style="text-align: center;">2</h2>
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+                <p class="ascii-art">
+=<br>O<br>|<br>=<br>O<br>O<br>O<br>|<br>|<br>O<br>O<br>=
+                </p>
+                <h2 class="center-text">3</h2>
+            </div>
+            <div class="image-block">
+                <img src="assets/3Rod4.png" alt="Abacus Rod 3">
+                <h2 style="text-align: center;">3</h2>
+            </div>
+        </div>
+        
+        <div class="content-row">
+            <div class="text-block">
+                <p class="ascii-art">
+=<br>O<br>|<br>=<br>O<br>O<br>O<br>O<br>|<br>|<br>O<br>=
+                </p>
+                <h2 class="center-text">4</h2>
+            </div>
+            <div class="image-block">
+                <img src="assets/4Rod4.png" alt="Abacus Rod 4">
+                <h2 style="text-align: center;">4</h2>
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+                <p class="ascii-art">
+=<br>O<br>|<br>=<br>O<br>O<br>O<br>O<br>O<br>|<br>|<br>=
+                </p>
+                <h2 class="center-text">5</h2>
+            </div>
+            <div class="image-block">
+                <img src="assets/FRod4.png" alt="Abacus Rod 5 (Full)">
+                <h2 style="text-align: center;">5</h2>
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+                <p class="ascii-art">
+=<br>|<br>O<br>=<br>O<br>O<br>O<br>O<br>O<br>|<br>|<br>=
+                </p>
+                <h2 class="center-text">10</h2>
+            </div>
+            <div class="image-block">
+                <img src="assets/TRod4.png" alt="Abacus Rod 10">
+                <h2 style="text-align: center;">10</h2>
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+                <p class="ascii-art">
+=<br>|<br>O<br>=<br>O<br>O<br>O<br>O<br>|<br>|<br>O<br>=
+                </p>
+                <h2 class="center-text">9</h2>
+            </div>
+            <div class="image-block">
+                <img src="assets/9Rod4.png" alt="Abacus Rod 9">
+                <h2 style="text-align: center;">9</h2>
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+                <p class="ascii-art">
+=<br>|<br>O<br>=<br>O<br>O<br>O<br>|<br>|<br>O<br>O<br>=
+                </p>
+                <h2 class="center-text">8</h2>
+            </div>
+            <div class="image-block">
+                <img src="assets/8Rod4.png" alt="Abacus Rod 8">
+                <h2 style="text-align: center;">8</h2>
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+                <p class="ascii-art">
+=<br>|<br>O<br>=<br>O<br>O<br>|<br>|<br>O<br>O<br>O<br>=
+                </p>
+                <h2 class="center-text">7</h2>
+            </div>
+            <div class="image-block">
+                <img src="assets/7Rod4.png" alt="Abacus Rod 7">
+                <h2 style="text-align: center;">7</h2>
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+                <p class="ascii-art">
+=<br>|<br>O<br>=<br>O<br>|<br>|<br>O<br>O<br>O<br>O<br>=
+                </p>
+                <h2 class="center-text">6</h2>
+            </div>
+            <div class="image-block">
+                <img src="assets/6Rod4.png" alt="Abacus Rod 6">
+                <h2 style="text-align: center;">6</h2>
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+                <p class="ascii-art">
+=<br>|<br>O<br>=<br>|<br>|<br>O<br>O<br>O<br>O<br>O<br>=
+                </p>
+                <h2 class="center-text">5 </h2>
+            </div>
+            <div class="image-block">
+                <img src="assets/5Rod4.png" alt="Abacus Rod 5">
+                <h2 style="text-align: center;">5</h2>
+            </div>
+        </div>
+
+        <hr style="margin: 40px 0; border: 1px solid #ddd;">
+
+        <div class="content-row">
+            <div class="text-block">
+                <h3>Valid Input for Integers</h3>
+                <p>Some pages are labelled as for integers. Integers have the following format: strings containing only the characters '0'-'9' with no leading '0's. That is, the first character cannot be a 0.</p>
+            </div>
+            <div class="text-block">
+                <h4>Examples of valid integer input</h4>
+                <p>100, 123456789, 7, 99</p>
+                <h4>Examples of invalid input</h4>
+                <p>00000000001, 022, 1.99, &77, @!#@$, abc</p>
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+                <h3>Valid Input for Terminating Decimal Numbers</h3>
+                <ul>
+                    <li>Some pages are labelled as for rational numbers or rationals.</li>
+                    <li><strong>Rationals or terminating decimals/TDs have the following format:</strong></li>
+                    <li>A string containing digits: "0"-"9", and possibly the sign "-" and decimal point ".". If it has no "." it's the same format as a positive or negative integer.</li>
+                    <li>If it has a "-" it has only one and it is the first character.</li>
+                    <li>If there is a "." then it can't be the first character nor can it be the last. There can be no leading 0s to the left of it (if there is no "-" then the first character cannot be "0" unless the second character is ".").</li>
+                    <li>If there is a "-" then the second character cannot be "0" unless the third is ".".</li>
+                    <li>We call the digits to the right of the decimal point the <em>tail</em>. The tail is a string of digits; this string can have leading 0s but cannot be all 0s.</li>
+                    <li>'0' cannot be the last digit if the string has a '.'.</li>
+                </ul>
+            </div>
+            <div class="text-block">
+                <h4>Examples of valid rational input</h4>
+                <p>0.00001, 9.88, -23, -0.6</p>
+                <h4>Examples of invalid input</h4>
+                <p>2.0, 5.&, 789.00000</p>
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+                <h3>Valid Input for Positive Binary Integers</h3>
+                <p>Some pages are dedicated to binary integer arithmetic. A binary integer contains only the characters '0' and '1'. The exception is the number 0.</p>
+            </div>
+            <div class="text-block">
+                <h4>Examples of valid integer input</h4>
+                <p>100, 101, 100000000</p>
+                <h4>Examples of invalid input</h4>
+                <p>00000000001, 00</p>
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+                <h3>Page Layout</h3>
+                <p>The body of each page of the AAA has roughly the same layout from top to bottom:</p>
+                <ol>
+                    <li>Text fields for punching in either valid integers or rationals, or a dropdown for input.</li>
+                    <li>One or more buttons that perform an arithmetic operation.</li>
+                    <li>A display area for the visuals (some pages will have two, with the second for Napier's Bones).</li>
+                    <li>Control buttons for the animations.</li>
+                    <li>Labels for text output.</li>
+                    <li>A button that links to the next demo.</li>
+                </ol>
+            </div>
+            <div class="image-block">
+                <img src="pictures/oneDisplayExample1.png" alt="Example layout with one display" style="margin-bottom: 20px;">
+                <img src="pictures/twoDisplaysExample1.png" alt="Example layout with two displays">
+            </div>
+        </div>
+
+        <a href="abacusHumans.html" class="link-button">More info on the nature of the abacus and the AAA</a>
+
+    </div>
+
+    <script>
+        const container = document.getElementById('abacus-group');
+
+        for (let i = 110; i > 0; i--) {
+            let rodn = i % 3; 
+            let rodNumber;
+            
+            if (rodn == 2) {
+                rodNumber = 8;
+            } else if (rodn == 1) {
+                rodNumber = 7;
+            } else if (rodn == 0) {
+                rodNumber = 6;
+            }
+            
+            let img = document.createElement('img');
+            img.src = `assets/${rodNumber}Rod4.png`;
+            container.appendChild(img);
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>abacus increment</title>
+
+    <style>
+        /* General Layout */
+        * {
+            box-sizing: border-box; /* Ensures padding doesn't break widths on mobile */
+        }
+
+        body {
+            font-family: sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* --- FIXED: Header Layout --- */
+        .page-header {
+            position: relative; /* Anchor point for absolute background */
+            height: 160px;      /* Forces the header to maintain original visual height */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: black; 
+            text-align: center;
+            padding: 0 15px; /* Prevent text from touching edges on small screens */
+        }
+
+        /* Centered title text layers over the assets */
+        .page-header h1 {
+            position: relative;
+            z-index: 10;
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        /* --- Abacus Background --- */
+        #abacus-group {
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            z-index: 1; 
+            display: flex; 
+            width: 100%;
+            height: 100%;
+            overflow: hidden; /* Clips extra assets horizontally */
+        }
+
+        #abacus-group img {
+            width: 15px;
+            height: 100%; 
+            object-fit: fill; /* Forces the asset to stretch/scale perfectly */
+        }
+
+        /* Navigation */
+        nav {
+            text-align: center;
+            padding: 10px;
+        }
+
+        nav a {
+            display: inline-block;
+            padding: 12px 20px; /* Larger touch target for mobile */
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Main Container */
+        .main-container {
+            background-color: #ffffff;
+            width: 100%;           /* Mobile first width */
+            max-width: 500px;      /* Cap width for desktop */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin: 0 auto 30px auto; 
+            display: flex; 
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        /* Input Rows */
+        .input-layout {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap; /* Allows wrapping on very small screens */
+        }
+
+        .input-layout input {
+            flex: 1;
+            min-width: 120px; /* Prevent input from crushing */
+            padding: 12px;    /* Larger tap area */
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;  /* Prevents iOS from auto-zooming on focus */
+        }
+
+        /* Button Rows */
+        .button-layout {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+        }
+
+        .button-layout button, .control-layout button, .main-container > button {
+            padding: 12px 16px; /* Larger tap targets for mobile */
+            cursor: pointer;
+            border: 1px solid #ccc;
+            background-color: #e9e9e9;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+            font-size: 16px;
+        }
+
+        .button-layout button:hover, .control-layout button:hover:not(:disabled), .main-container > button:hover {
+            background-color: #d4d4d4;
+        }
+
+        button:disabled {
+            background-color: #f5f5f5;
+            color: #a0a0a0;
+            cursor: not-allowed;
+        }
+
+        /* Scroll Area & ASCII Container */
+        .scroll-area {
+            border: 1px solid #ccc;
+            height: 40vh;          /* Responsive height based on viewport */
+            min-height: 250px;     /* Minimum height threshold */
+            max-height: 400px;     /* Maximum height threshold */
+            overflow-y: auto;
+            overflow-x: auto;
+            background-color: #fafafa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+        }
+
+        .scroll-container {
+            font-family: "Courier New", Courier, monospace;
+            font-size: 18px; /* Slightly smaller to fit better on mobile */
+            text-align: center;
+            white-space: pre;
+        }
+
+        /* Labels */
+        .label-layout {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        #output_label, #rods_label {
+            font-weight: bold;
+            color: #333;
+            word-wrap: break-word; /* Prevents long outputs from breaking layout */
+        }
+
+        /* Playback Controls */
+        .control-layout {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        #btn_back {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .link-button { 
+            display: inline-block;
+            padding: 12px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        /* --- Mobile Breakpoints --- */
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .main-container {
+                width: calc(100% - 20px); /* 10px margin on each side so it doesn't touch the edge */
+            }
+
+            .control-layout {
+                flex-direction: column; /* Stack control buttons vertically */
+            }
+            
+            .control-layout button, .main-container > button {
+                width: 100%; /* Full width buttons for easier thumb access */
+            }
+            
+            .scroll-container {
+                font-size: 14px; /* Scale font down slightly on very small screens */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    
+    <header class="page-header">
+        <div id="abacus-group"></div>
+        <h1>We start from 0</h1>
+    </header>
+    
+    <nav><a href="index.html">← Back to Home</a></nav>
+    
+    <div class="main-container">
+        
+        <div class="scroll-area">
+            <div id="scroll_container" class="scroll-container"></div>
+        </div>
+
+        <div class="label-layout">
+            <div id="output_label">output</div>
+        </div>
+
+        <div class="control-layout">
+            <button id="sf" disabled>add (or increment by) 1</button>
+            <button id="sb" disabled>reset</button>
+        </div>
+
+        <button id="btn_back">counting down -></button>
+    </div>
+
+    <script>
+        const container = document.getElementById('abacus-group');
+
+        // Dynamically populates background images based on the screen width
+        for (let i = 110; i > 0; i--) {
+            let rodNumber = i % 10; 
+            let img = document.createElement('img');
+            img.src = `assets/${rodNumber}Rod4.png`;
+            container.appendChild(img);
+        }
+    </script>
+
+    <script type="module" src="./example4.js"></script>
+</body>
+</html>

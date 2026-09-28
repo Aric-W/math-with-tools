@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Gallery</title>
+    <style>
+        /* General page styling */
+        * {
+            box-sizing: border-box; /* Prevents padding from affecting total width */
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 18px; /* Slightly scaled for better mobile readability */
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px 15px; /* Responsive padding */
+            background-color: #fcfcfc;
+            color: #333;
+        }
+
+        /* Container to center the content and limit its maximum width */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto; 
+            padding-bottom: 40px;
+        }
+
+        /* Improved touch targets for navigation */
+        nav {
+            margin-bottom: 20px;
+        }
+
+        nav a {
+            display: inline-block;
+            padding: 12px 16px;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* The row that holds the two columns */
+        .content-row {
+            display: flex;
+            align-items: center; 
+            gap: 40px; 
+            margin-bottom: 60px; 
+        }
+
+        /* The left column (Text) */
+        .text-block {
+            flex: 1; 
+        }
+
+        /* The right column (Image) */
+        .image-block {
+            flex: 1; 
+            text-align: center;
+        }
+
+        /* Ensures images never break out of their column */
+        .image-block img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 6px; 
+            margin: 0 auto;
+        }
+
+        /* Larger tap target for primary buttons */
+        .link-button { 
+            display: block;
+            width: 100%;
+            max-width: 300px;
+            margin: 20px auto 0 auto;
+            padding: 15px 20px; 
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* Mobile responsiveness: stacks columns on small screens */
+        @media (max-width: 768px) {
+            .content-row {
+                flex-direction: column;
+                gap: 20px;
+                margin-bottom: 40px;
+            }
+
+            .image-block {
+                text-align: left; /* Aligns text answers appropriately when stacked */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav><a href="index.html">← Back to Home</a></nav>
+
+    <div class="container">
+                    
+        <h1>Abacus Gallery</h1>
+        
+        <div class="content-row">
+            <div class="text-block">
+                <h2></h2>
+                <p> Two Chinese counting frames, called suanpan. Top was purchased off Amazon for  $13.99, bottom for $14.99 not including tax or shipping in July-August 2025, wooden frame with plastic beads. Notice they have 13 rods each.</p>
+            </div>
+            <div class="image-block">
+                <img src="pictures/image0161.jpeg" alt="Two Chinese counting frames">
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+                <h2></h2>
+                <p> Small all-wood Chinese abacus and manual, purchased at a bookstore for $16.95 (tax not included) circa 2008</p>
+            </div>
+            <div class="image-block">
+                <img src="pictures/image0163.jpeg" alt="Small all-wood Chinese abacus">
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+                <h2></h2>
+                <p> Japanese Soroban abacus made of wood and metal, purchased at a toy shop 2014-2015 for an unknown price. Notice that this abacus has little bumps on the middle bar that can be used as a decimal point or as thousands place markers.</p>
+            </div>
+            <div class="image-block">
+                <img src="pictures/image0160.jpeg" alt="Japanese Soroban abacus">
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+                <h2></h2>
+                <p> Small decorative metal Chinese abacus, purchased at a museum in Montana for around $20 mid 2023</p>
+            </div>
+            <div class="image-block">
+                <img src="pictures/image0159.jpeg" alt="Small decorative metal Chinese abacus">
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+                <h2></h2>
+                <p> Decorative counting frames embedded in a screen at a restaurant in Florida, early 2026</p>
+            </div>
+            <div class="image-block">
+                <img src="pictures/image0162.jpeg" alt="Decorative counting frames">
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+                <h2></h2>
+                <p> The abacuses all together for size comparison, the handmade version is clearly on the lower right.</p>
+            </div>
+            <div class="image-block">
+                <img src="pictures/image0165.jpeg" alt="Size comparison of abacuses">
+            </div>
+        </div>
+
+        <div class="content-row">
+            <div class="text-block">
+                <h2>A few good questions</h2>
+                <p>Why does the Japanese abacus have only four lower beads?<br>
+                Why do some counting frames have one upper bead while others have two?<br>
+                Why does the handmade abacus have an extra lower bead, but only one upper bead?</p>
+            </div>
+            <div class="image-block">
+                <h2>Answers</h2>
+                <p>The base-10 abacus only needs one upper bead and four lower beads, hence the Japanese one has only those beads.<br>
+                The Chinese abacus has two additional beads on each rod, one in the upper deck and one in the lower deck, both provide extra features.<br> 
+                There will be much more on the lower fifth bead in module II.<br>
+                The uppermost upper beads were supposedly used for working with hexadecimal numbers, for another use of these beads see <a href="https://jccsvq.github.io/libro-abaco/index-tea.html#XIV%20How%20to%20Deal%20with%20Overflow">XIV How to Deal with Overflow</a>.<br>
+                The extra feature provided by the additional lower bead (full rods) is useful for the basic operations of arithmetic, this feature is used extensively in module II, conversely second upper beads aren’t used at all in module II.</p>
+            </div>
+        </div>
+
+        <a href="representingNumbers.html" class="link-button">representing numbers</a>
+    </div>
+</body>
+</html>

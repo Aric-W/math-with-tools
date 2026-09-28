@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Fibonacci</title>
+
+    <style>
+        /* General Layout */
+        * {
+            box-sizing: border-box; /* Ensures padding does not break widths */
+        }
+
+        body {
+            font-family: sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .page-header {
+            position: relative; 
+            height: 160px;       
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            color: black; 
+            padding: 0 15px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            position: relative;
+            z-index: 10;
+            margin: 0;
+            font-size: 1.8rem;
+        }
+
+        /* --- Abacus Background --- */
+        #abacus-group {
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            z-index: 1; 
+            display: flex; 
+            width: 100%;
+            height: 100%;
+            overflow: hidden; 
+        }
+
+        #abacus-group img {
+            width: 15px;
+            height: 100%; 
+            object-fit: fill; 
+        }
+
+        /* Navigation */
+        nav {
+            text-align: center;
+            padding: 10px;
+        }
+
+        nav a {
+            display: inline-block;
+            padding: 12px 20px;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .main-container {
+            background-color: #ffffff;
+            width: 100%;           /* Fluid width for mobile */
+            max-width: 500px;      /* Caps width on desktop */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin: 0 auto 30px auto; 
+            display: flex; 
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        /* Input Rows */
+Here is the updated, mobile-friendly version of fib1.html[cite: 1]. The primary changes include replacing the fixed 500px width on `.main-container` with a responsive percentage width and maximum width, as well as adding `flex-wrap` to the button layouts so they stack properly on smaller screens[cite: 1].
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonacci</title>
+    
+    <style>
+        /* General Layout */
+        body {
+            font-family: sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .page-header {
+            position: relative; 
+            height: 160px;       
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            color: black; 
+        }
+
+        /* Centered title text layers over the assets */
+        .page-header h1 {
+            position: relative;
+            z-index: 10;
+            margin: 0;
+            text-align: center;
+            padding: 0 15px;
+        }
+
+        /* --- Abacus Background --- */
+        #abacus-group {
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            z-index: 1; 
+            display: flex; 
+            width: 100%;
+            height: 100%;
+            overflow: hidden; 
+        }
+
+        #abacus-group img {
+            width: 15px;
+            height: 100%; 
+            object-fit: fill; 
+        }
+        
+        nav {
+            padding: 0 15px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .main-container {
+            background-color: #ffffff;
+            width: 90%; /* Changed to percentage for responsiveness */
+            max-width: 500px; /* Limits maximum size on desktop */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-sizing: border-box; /* Ensures padding doesn't overflow width */
+            margin: 0 auto; 
+            display: flex; 
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        /* Input Rows */
+        .input-layout {
+            display: flex;
+            gap: 10px;
+            flex-direction: column; /* Stack vertically on small screens */
+        }
+
+        @media (min-width: 400px) {
+            .input-layout {
+                flex-direction: row; /* Side-by-side on larger screens */
+            }
+        }
+
+        .input-layout select {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        /* Button Rows */
+        .button-layout {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+            flex-wrap: wrap; /* Allows wrapping */
+        }
+
+        .button-layout button, .control-layout button, .main-container > button {
+            padding: 8px 12px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            background-color: #e9e9e9;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+            flex: 1; /* Allows buttons to share space evenly */
+            text-align: center;
+        }
+
+        .button-layout button:hover, .control-layout button:hover:not(:disabled), .main-container > button:hover {
+            background-color: #d4d4d4;
+        }
+
+        button:disabled {
+            background-color: #f5f5f5;
+            color: #a0a0a0;
+            cursor: not-allowed;
+        }
+
+        /* Scroll Area & ASCII Container */
+        .scroll-area {
+            border: 1px solid #ccc;
+            height: 250px;
+            overflow-y: auto;
+            overflow-x: auto;
+            background-color: #fafafa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .scroll-container {
+            font-family: "Courier New", Courier, monospace;
+            font-size: 15px;
+            text-align: right;
+            white-space: pre;
+        }
+
+        /* Labels */
+        .label-layout {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        #output_label, #rods_label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Playback Controls */
+        .control-layout {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap; /* Prevents squishing on tiny screens */
+        }
+
+        #btn_back {
+            margin-top: 10px;
+            font-weight: bold;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <header class="page-header">
+        <h1>fibonacci sequence</h1>
+        <div id="abacus-group"></div>
+    </header>
+    
+    <nav><a href="index.html">← Back to Home</a></nav>
+    
+    <div class="main-container">
+
+        <div class="input-layout">
+            <select id="my_combo_box">
+                <option value="default" disabled selected>Choose an option...</option>
+                <option value="option9">9 rods</option>
+                <option value="option11">11 rods</option>
+                <option value="option13">13 rods</option>
+                <option value="option21">21 rods</option>
+                <option value="option19">19 rods</option>
+            </select>
+        </div>
+
+        <div class="scroll-area">
+            <div id="scroll_container" class="scroll-container"></div>
+        </div>
+
+        <div class="label-layout">
+            <div id="output_label">output</div>
+        </div>
+
+        <div class="control-layout">
+            <button id="sf" disabled>fibonacci</button>
+            <button id="sb" disabled>reverse fibonacci</button>
+        </div>
+
+        <button id="btn_back">lattice multiplication -></button>
+    </div>
+    
+    <script>
+        const container = document.getElementById('abacus-group');
+
+        for (let i = 110; i > 0; i--) {
+            let rodn = i % 10; 
+            let rodNumber = (rodn == 2) ? 9 : 0;
+            
+            let img = document.createElement('img');
+            img.src = `assets/${rodNumber}Rod4.png`;
+            container.appendChild(img);
+        }
+    </script>
+
+    <script type="module" src="./fib2.js"></script>
+</body>
+</html>

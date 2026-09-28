@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Division</title>
+
+    <style>
+        /* General Layout */
+        * {
+            box-sizing: border-box; /* Ensures padding and borders don't increase element widths */
+        }
+
+        body {
+            font-family: sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .page-header {
+            position: relative; /* Anchor point for absolute background */
+            height: 160px;      /* Forces the header to maintain original visual height */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            color: black; 
+            padding: 0 15px;
+            text-align: center;
+        }
+
+        /* Centered title text layers over the assets */
+        .page-header h1 {
+            position: relative;
+            z-index: 10;
+            margin: 0;
+            font-size: 1.8rem;
+        }
+
+        /* --- Abacus Background --- */
+        #abacus-group {
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            z-index: 1; 
+            display: flex; 
+            width: 100%;
+            height: 100%;
+            overflow: hidden; /* Clips extra assets horizontally */
+        }
+
+        #abacus-group img {
+            width: 15px;
+            height: 100%; 
+            object-fit: fill; /* Forces the asset to stretch/scale perfectly */
+        }
+        
+        /* Navigation */
+        nav {
+            text-align: center;
+            padding: 10px;
+        }
+
+        nav a {
+            display: inline-block;
+            padding: 12px 20px; /* Larger touch target for mobile */
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .main-container {
+            background-color: #ffffff;
+            width: 100%;           /* Fluid width for mobile */
+            max-width: 1000px;     /* Caps the width on desktop */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            
+            margin: 0 auto 30px auto; /* Centers it */
+            
+            display: flex; 
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        /* Input Rows */
+        .input-layout {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap; /* Allows wrapping on tiny screens */
+        }
+
+        .input-layout input {
+            flex: 1;
+            min-width: 120px;
+            padding: 12px;    /* Larger tap area */
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;  /* Prevents iOS auto-zoom */
+        }
+
+        /* Button Rows */
+        .button-layout {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+
+        .button-layout button, .control-layout button, .main-container > button {
+            padding: 12px 16px; /* Taller buttons for thumbs */
+            cursor: pointer;
+            border: 1px solid #ccc;
+            background-color: #e9e9e9;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+            font-size: 16px;
+        }
+
+        .button-layout button:hover, .control-layout button:hover:not(:disabled), .main-container > button:hover {
+            background-color: #d4d4d4;
+        }
+
+        button:disabled {
+            background-color: #f5f5f5;
+            color: #a0a0a0;
+            cursor: not-allowed;
+        }
+
+        /* Scroll Area Layout */
+        .scroll-row-layout {
+            display: flex;
+            flex-direction: row;
+            gap: 15px; 
+            width: 100%;
+        }
+
+        /* Text and Image Scroll Areas */
+        .scroll-area {
+            flex: 1; 
+            border: 1px solid #ccc;
+            height: 250px;
+            overflow-y: auto;
+            overflow-x: auto;
+            background-color: #fafafa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+        }
+
+        /* Text Container */
+        .scroll-container {
+            font-family: "Courier New", Courier, monospace;
+            font-size: 15px;
+            text-align: center;
+            white-space: pre;
+        }
+
+        #nb_scroll_container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            overflow-x: auto; 
+            width: 100%;
+            height: 100%;
+        }
+
+        #nb_scroll_container img {
+            height: 100%;
+            max-height: 230px; /* Constrain image height slightly within padded container */
+            width: auto;       
+            object-fit: contain; 
+        }
+
+        /* Chunks Label */
+        #chunks_label {
+            white-space: pre-wrap; 
+            font-family: "Courier New", Courier, monospace; 
+            font-size: 15px;
+            font-weight: bold;
+            color: #333;
+            flex-shrink: 0;
+            line-height: 1.4; 
+            order: 99; 
+            padding-left: 30px; 
+            padding-right: 10px;
+            word-break: break-all; /* Prevents overflow on very long strings */
+        }
+
+        /* Labels */
+        .label-layout {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        #output_sofar, #output_label, #rods_label {
+            font-weight: bold;
+            color: #333;
+            word-wrap: break-word;
+        }
+
+        /* Playback Controls */
+        .control-layout {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        #btn_back {
+            margin-top: 10px;
+            font-weight: bold;
+            width: 100%;
+        }
+
+        /* --- Mobile Breakpoints --- */
+        @media (max-width: 768px) {
+            .scroll-row-layout {
+                flex-direction: column; /* Stacks the two side-by-side scroll areas */
+            }
+
+            .scroll-area {
+                height: 200px; /* Slightly shorter when stacked */
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 1.4rem;
+            }
+            
+            .main-container {
+                width: calc(100% - 20px);
+            }
+
+            .button-layout, .control-layout {
+                flex-direction: column; 
+            }
+            
+            .button-layout button, .control-layout button {
+                width: 100%;
+            }
+
+            #chunks_label {
+                padding-left: 10px; /* Reduced padding on mobile */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    
+    <header class="page-header">
+        <div id="abacus-group"></div>
+        <h1>division (positive integers only)</h1>
+    </header>
+    
+    <nav><a href="index.html">← Back to Home</a></nav>
+    
+    <div class="main-container">
+        
+        <div class="input-layout">
+            <input type="text" id="input_field1" placeholder="first input">
+            <input type="text" id="input_field2" placeholder="second input">
+        </div>
+
+        <div class="button-layout">
+            <button id="process_button">÷</button>
+        </div>
+
+        <div class="scroll-row-layout">
+            
+            <div class="scroll-area">
+                <div id="ab_scroll_container" class="scroll-container"></div>
+            </div>
+
+            <div class="scroll-area">
+                <div id="nb_scroll_container">
+                    <!-- Note: removed standard scroll-container class here since you used an ID for flex rules in original CSS -->
+                </div>
+            </div>
+
+        </div>
+
+        <div class="label-layout">
+            <div id="output_sofar">output so far</div>
+            <div id="chunks_label"></div>
+            <div id="output_label">total output</div>
+            <div id="rods_label">rods: 0</div>
+        </div>
+
+        <div class="control-layout">
+            <button id="clear_button" disabled>Start</button>
+            <button id="next_button" disabled>Next</button>
+            <button id="play_button" disabled>Play</button>
+            <button id="stop_button" disabled>Pause</button>
+        </div>
+
+        <button id="btn_back">square roots of counting numbers on an abacus -></button>
+
+    </div>
+
+    <script>
+        const container = document.getElementById('abacus-group');
+
+        for (let i = 110; i > 0; i--) {
+            let rodn = i % 10; 
+            let rodNumber; // Declared to avoid strict mode errors
+            
+            if (rodn == 2) {
+                rodNumber = 0;
+            } else {
+                rodNumber = 9;
+            }
+            
+            let img = document.createElement('img');
+            img.src = `assets/${rodNumber}Rod4.png`;
+            container.appendChild(img);
+        }
+    </script>
+
+    <script type="module" src="./division.js"></script>
+</body>
+</html>

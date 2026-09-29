@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic operations</title>
+    
+
+    <style>
+        /* General Layout */
+        body {
+    font-family: sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    /* No display: flex here anymore! */
+}
+
+.page-header {
+            position: relative; /* Anchor point for absolute background */
+            height: 160px;       /* Forces the header to maintain example4's original visual height */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            color: black; 
+        }
+
+        /* Centered title text layers over the assets */
+        .page-header h1 {
+            position: relative;
+            z-index: 10;
+            margin: 0;
+        }
+
+        /* --- Abacus Background --- */
+        #abacus-group {
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            z-index: 1; 
+            display: flex; 
+            width: 100%;
+            height: 100%;
+            overflow: hidden; /* Clips extra assets horizontally */
+        }
+
+        #abacus-group img {
+            width: 15px;
+            height: 100%; 
+            object-fit: fill; /* Forces the asset to stretch/scale perfectly into the 80px boundary */
+        }
+
+.main-container {
+    background-color: #ffffff;
+    width: 500px; /* Keep your fixed width */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    
+    /* THIS IS THE KEY: */
+    margin: 0 auto; /* 0 top/bottom, 'auto' left/right centers it */
+    
+    display: flex; /* You can still use flex INSIDE the container for your buttons */
+    flex-direction: column;
+    gap: 15px;
+}
+
+        
+
+        /* Input Rows */
+        .input-layout {
+            display: flex;
+            gap: 10px;
+        }
+
+        .input-layout input {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        /* Button Rows */
+        .button-layout {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+
+        .button-layout button, .control-layout button, .main-container > button {
+            padding: 8px 12px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            background-color: #e9e9e9;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+
+        .button-layout button:hover, .control-layout button:hover:not(:disabled), .main-container > button:hover {
+            background-color: #d4d4d4;
+        }
+
+        button:disabled {
+            background-color: #f5f5f5;
+            color: #a0a0a0;
+            cursor: not-allowed;
+        }
+
+        /* Scroll Area & ASCII Container */
+        .scroll-area {
+            border: 1px solid #ccc;
+            height: 250px;
+            overflow-y: auto;
+            overflow-x: auto;
+            background-color: #fafafa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .scroll-container {
+            font-family: "Courier New", Courier, monospace;
+            font-size: 15px;
+            text-align: right;
+            white-space: pre;
+        }
+
+        /* Labels */
+        .label-layout {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        #output_label, #rods_label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Playback Controls */
+        .control-layout {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        #btn_back {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <header class="page-header">
+        <div id="abacus-group"></div>
+        <h1>A closer look at long division
+        </h1>
+        
+    </header>
+    <nav><a href="index.html">← Back to Home</a></nav>
+    <div class="main-container">
+        
+        <div class="input-layout">
+            <input type="text" id="input_field1" placeholder="first input">
+            <input type="text" id="input_field2" placeholder="second input">
+        </div>
+
+        <div class="button-layout">
+            <button id="process_button">longDiv</button>
+        </div>
+
+        <div class="scroll-area">
+            <div id="scroll_container" class="scroll-container"></div>
+        </div>
+
+        <div class="label-layout">
+            <div id="output_label">output</div>
+            
+        </div>
+
+        <div class="control-layout">
+            <button id="clear_button" disabled>Start</button>
+            <button id="prev_button" disabled>Previous</button>
+            <button id="next_button" disabled>Next</button>
+            <button id="play_button" disabled>Play</button>
+            <button id="stop_button" disabled>Pause</button>
+        </div>
+
+        <button id="btn_back">Division on an abacus -></button>
+
+    </div>
+
+    <script>
+        const container = document.getElementById('abacus-group');
+
+        for (let i = 110; i > 0; i--) {
+            let rodn = i % 3; 
+            if (rodn == 2)
+                {
+                    rodNumber = 5
+                }
+            else if (rodn == 1)
+                {
+                    rodNumber = "T"
+                }
+            else if (rodn == 0)
+                {
+                    rodNumber = 2
+                }
+            let img = document.createElement('img');
+            img.src = `assets/${rodNumber}Rod4.png`;
+            container.appendChild(img);
+        }
+    </script>
+    <script type="module">
+  // Import directly from the web instead of node_modules
+        import { Decimal } from 'https://jsdelivr.net';
+
+        const result = new Decimal(0.1).add(0.2);
+        console.log(result.toString()); // 0.3
+</script>
+
+        <script src="./divisionText.js" type="module"></script>
+
+</body>
+</html>

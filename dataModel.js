@@ -1102,6 +1102,10 @@ function listize(st){
 }
 
 export function checkTD(inp){
+
+    if(inp.length < 1){
+        return false
+    }
     if(inp[0] == "-"){
         return checkTD(inp.slice(1))
     }

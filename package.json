@@ -2,5 +2,5 @@
   "name": "my-project",
   "version": "1.0.0",
   "type": "module",
-  "dependencies": {"decimal.mjs": "^10.5.0"}
+  "dependencies": {}
 }

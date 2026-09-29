@@ -1,11 +1,22 @@
 //import * as ld from './longDiv.js';
 //module.exports = ld.longDiv;
-import { longDiv } from "./dataModel.js";
+//import { longDiv } from "./dataModel.js";
+
+let v1, v2, dub
 
 
 let currentIndex = 0;
 let currentData = [];
 let isPlaying = false;
+
+ [v1, v2] = getInputs();
+                if (v1 !== null) {
+                    //dub = longDiv(v1,v2)
+                    dub = ["13717421",['  123456789\n-  90000000\n----------\n  33456789\n ', '  33456789\n- 27000000\n---------\n  6456789\n ', '  6456789\n- 6300000\n--------\n  156789\n ', '  156789\n-  90000\n-------\n  66789\n ', '  66789\n- 63000\n------\n  3789\n ', '  3789\n- 3600\n-----\n  189\n ', '  189\n- 180\n----\n  9\n ', '  9\n- 9\n--\n  0\n ']]
+                    //console.log(dub[1])
+                    // Match Python: process_result((dub[1], dub[0]), "×")
+                    processResult([dub[1], dub[0]], "÷");
+                }
 
 function enable_controls(){
     document.getElementById("prev_button").disabled = False
@@ -43,8 +54,10 @@ function enableControls() {
 }
 
 function getInputs() {
-    let v1 = document.getElementById("input_field1").value;
-    let v2 = document.getElementById("input_field2").value;
+    /*let v1 = document.getElementById("input_field1").value;
+    let v2 = document.getElementById("input_field2").value;*/
+    const v1 = "123456789"
+    const v2 = "9"
     
     if (!(checkInput(v1) && checkInput(v2))) {
         window.alert("Please enter valid positive integers.");
@@ -68,8 +81,11 @@ function processResult(dub, opChar) {
     currentData = dub[0];
     currentIndex = 0;
     
-    let val1 = document.getElementById("input_field1").value;
-    let val2 = document.getElementById("input_field2").value;
+    /*let val1 = document.getElementById("input_field1").value;
+    let val2 = document.getElementById("input_field2").value;*/
+
+    let val1 = "123456789"
+    let val2 = "9"
     
     document.getElementById("output_label").innerText = `${val1} ${opChar} ${val2} = ${dub[1]}`;
     
@@ -117,7 +133,8 @@ document.addEventListener("DOMContentLoaded", () => {
             case "process_button":
                 [v1, v2] = getInputs();
                 if (v1 !== null) {
-                    dub = longDiv(v1,v2)
+                    //dub = longDiv(v1,v2)
+                    dub = ["13717421",['  123456789\n-  90000000\n----------\n  33456789\n ', '  33456789\n- 27000000\n---------\n  6456789\n ', '  6456789\n- 6300000\n--------\n  156789\n ', '  156789\n-  90000\n-------\n  66789\n ', '  66789\n- 63000\n------\n  3789\n ', '  3789\n- 3600\n-----\n  189\n ', '  189\n- 180\n----\n  9\n ', '  9\n- 9\n--\n  0\n ']]
                     //console.log(dub[1])
                     // Match Python: process_result((dub[1], dub[0]), "×")
                     processResult([dub[1], dub[0]], "÷");

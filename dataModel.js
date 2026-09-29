@@ -4,7 +4,7 @@
 
 //import { Decimal } from './node_modules/decimal.js/decimal.mjs';
 //import { Decimal } from 'decimal.mjs';
-import { Decimal } from 'https://jsdelivr.net';
+//import { Decimal } from 'https://jsdelivr.net';
 
 /*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -2821,7 +2821,7 @@ export function sqrtRatNoNewtons(input){
     split = ratToDub(newInp)
 
     if(parseInt(split[1]) >= 0){
-        oper = sqrt(split[0])
+        oper = sqrt(newInp)
         newRat = oper[0]
 
     }
@@ -2861,7 +2861,7 @@ division text
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
 
-function ratToDub2(num){
+/*function ratToDub2(num){
     let idx = 0
     for(let i = 0; i < num.length; i++){
         idx = 0
@@ -3246,7 +3246,7 @@ export function longDiv(dividend,divisor){
 
     return [quot, steps]
 
-}
+}*/
 
 /*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

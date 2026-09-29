@@ -1,8 +1,8 @@
 //model
-import Decimal from './node_modules/decimal.js/decimal.mjs';
+//import Decimal from './node_modules/decimal.js/decimal.mjs';
 
 
-//import { Decimal } from 'decimal.js';
+import { Decimal } from './node_modules/decimal.js/decimal.mjs';
 
 /*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

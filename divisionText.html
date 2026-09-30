@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basic operations</title>
+    <title>long division demo</title>
+    <link rel="icon" type="image/png" href="/assets/lm/18dia.png">
     
     <style>
         /* General Layout */
@@ -173,7 +174,7 @@
     
     <header class="page-header">
         <div id="abacus-group"></div>
-        <h1>A closer look at long division</h1>
+        <h1>A closer look at long division. demo: 123,456,789 ÷ 9</h1>
     </header>
     
     <nav><a href="index.html">← Back to Home</a></nav>
@@ -185,6 +186,32 @@
 
         <div class="label-layout">
             <div id="output_label">output</div>
+        </div>
+
+        <div class="label-layout">
+            <li>recall that:
+                0 × 9 = 0,
+                1 × 9 = 9,
+                2 × 9 = 18,
+                3 × 9 = 27,
+                4 × 9 = 36,
+                5 × 9 = 45,
+                6 × 9 = 54,
+                7 × 9 = 63,
+                8 × 9 = 72,
+                9 × 9 = 81
+
+            </li>
+            <li> this list of single-digit numbers times the divisor is here called a "chunk table"</li>
+            <li>the dividend is a minuend.</li>
+                <li>12 times 10 million minus 9 times 10 million is 3 times 10 million 
+                    just like how 12 times 1 minus 9 times 1 is 3 times 1. 1 is a power of 10
+                </li>
+                <li>We subtract a digit of the quotient times the divisor times a power of 10 from the dividend</li>
+                <li>we keep the result
+                    and "carry down" that is, preserve the digits unaffected by the subtraction, and then subtract
+                the next digit times the divisor times a power of 10</li>
+            
         </div>
 
         <div class="control-layout">

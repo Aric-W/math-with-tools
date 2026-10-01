@@ -2679,12 +2679,12 @@ export function addRat(rat1,rat2){
     let res = ""
     let built = ""
 
-    for(let i = 0; i < tuple1[2]; i++){
+    for(let i = 0; i <= tuple1[2]; i++){
         built = built + sm[i]
     }
     if(sm.length-tuple1[2] > 0){
         built = built + "."
-        for (let i = tuple1[2]; i < sm.length; i++){
+        for (let i = tuple1[2]+1; i < sm.length; i++){
             built = built + sm[i]
         }
     }

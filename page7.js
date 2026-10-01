@@ -165,7 +165,7 @@ function processResult(inp1, inp2) {
     genImMat(inp1, inp2, numCols, numRows, gg, lAB);
     updateGrid();
 
-    document.getElementById("output_label").innerText = res;
+    document.getElementById("output_label").innerText = "correct digits in order: " + res;
     
 }
 /*
